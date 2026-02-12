@@ -14,25 +14,6 @@
       background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
       font-family: "Segoe UI", sans-serif;
       text-align: center;
-      overflow: hidden;
-    }
-
-    /* Realistic leaves background */
-    .leaf {
-      position: fixed;
-      width: 120px;
-      height: 120px;
-      background: radial-gradient(circle at 30% 30%, #c8e6c9, #66bb6a 60%, #2e7d32);
-      border-radius: 50% 40% 50% 40%;
-      transform-origin: center;
-      opacity: 0.6;
-      animation: swayDown 7s ease-in-out infinite;
-    }
-
-    @keyframes swayDown {
-      0%   { transform: translateY(0) rotate(0deg); }
-      50%  { transform: translateY(40px) rotate(10deg); }
-      100% { transform: translateY(0) rotate(0deg); }
     }
 
     .container {
@@ -41,8 +22,6 @@
       border-radius: 25px;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
       max-width: 400px;
-      position: relative;
-      z-index: 2;
     }
 
     h1 {
@@ -92,17 +71,10 @@
 
 <body>
 
-  <!-- Realistic leaves -->
-  <div class="leaf" style="left: 5%; top: 10%; animation-duration: 7s;"></div>
-  <div class="leaf" style="left: 80%; top: 15%; animation-duration: 8s;"></div>
-  <div class="leaf" style="left: 25%; top: 70%; animation-duration: 9s;"></div>
-  <div class="leaf" style="left: 65%; top: 75%; animation-duration: 6.5s;"></div>
-  <div class="leaf" style="left: 45%; top: 40%; animation-duration: 7.5s;"></div>
-
   <div class="container">
     <h1>Hi Yiit 💚</h1>
     <p>Here’s a song to highlight your day</p>
-    <button onclick="openRandomSong()">Press me 🎶</button>
+    <button onclick="openRandomSong()">Play your surprise 🎶</button>
   </div>
 
   <script>
@@ -110,11 +82,13 @@
       const songs = [
         "https://open.spotify.com/intl-tr/track/6qqrTXSdwiJaq8SO0X2lSe?si=1de3f1ebaff4464f
 ",
-        "https://open.spotify.com/intl-tr/track/1SKPmfSYaPsETbRHaiA18G?si=51905eb07dd049d1"
+        "https://open.spotify.com/intl-tr/track/1SKPmfSYaPsETbRHaiA18G?si=d14b4894b185464e",
+        "https://open.spotify.com/intl-tr/track/78beAzLy2Vqxs7zURZVusF?si=a229b97c26e94e37"
       ];
 
       const randomIndex = Math.floor(Math.random() * songs.length);
       window.open(songs[randomIndex], "_blank");
+
       createHeart();
     }
 
