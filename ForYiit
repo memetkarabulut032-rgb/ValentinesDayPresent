@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For Yiit 💚</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      background: white;
+      padding: 50px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+      max-width: 400px;
+    }
+
+    h1 {
+      color: #1b5e20;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #2e7d32;
+      margin-bottom: 30px;
+    }
+
+    button {
+      padding: 14px 30px;
+      font-size: 16px;
+      border: none;
+      border-radius: 50px;
+      background-color: #2e7d32;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1b5e20;
+      transform: scale(1.05);
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 18px;
+      animation: floatUp 2s ease-out forwards;
+    }
+
+    @keyframes floatUp {
+      0% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Hi Yiit 💚</h1>
+    <p>Here’s a song to highlight your day</p>
+    <button onclick="openRandomSong()">Play your surprise 🎶</button>
+  </div>
+
+  <script>
+    function openRandomSong() {
+      const songs = [
+        "https://open.spotify.com/intl-tr/track/2ndWbjiiNBEOrlfToKlABE?si=918e0e6534aa4f71",
+        "https://open.spotify.com/intl-tr/album/6xomx5ekO7qHDvDh57rZ5S?si=VecPmAtQSFSXrlp74CZMQA",
+        "https://open.spotify.com/intl-tr/track/1SKPmfSYaPsETbRHaiA18G?si=720da9ac52d1452d"
+      ];
+
+      const randomIndex = Math.floor(Math.random() * songs.length);
+      window.open(songs[randomIndex], "_blank");
+
+      createHeart();
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💚";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.bottom = "20px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
